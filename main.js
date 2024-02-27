@@ -16,10 +16,18 @@ function atualizandoTempo() {
   // Calcula a diferença entre as datas em milissegundos
   let diferencaEmMilissegundos = dataFinal - dataAtual;
 
+  // Calcula as horas restantes até o final do dia
+  let horasRestantes = 24 - dataAtual.getHours() - 1;
+
+  // Se a hora atual for maior do que a hora final do dia, ajusta as horas restantes
+  if (horasRestantes < 0) {
+    horasRestantes += 24;
+  }
+
   // Converte a diferença de milissegundos para dias, horas, minutos e segundos
   let segundosAtual = Math.floor(diferencaEmMilissegundos / 1000) % 60;
   let minutosAtual = Math.floor(diferencaEmMilissegundos / (1000 * 60)) % 60;
-  let horasAtual = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60)) % 24;
+  let horasAtual = horasRestantes;
   let diasAtual = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60 * 24));
 
   // Colocando na tela
