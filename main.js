@@ -10,6 +10,9 @@ function atualizandoTempo() {
   // Data atual
   let dataAtual = new Date();
 
+  // Zera os milissegundos para facilitar os cálculos
+  dataAtual.setMilliseconds(0);
+
   // Calcula a diferença entre as datas em milissegundos
   let diferencaEmMilissegundos = dataFinal - dataAtual;
 
@@ -19,7 +22,7 @@ function atualizandoTempo() {
   let horasAtual = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60)) % 24;
   let diasAtual = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60 * 24));
 
-  // colocando na tela
+  // Colocando na tela
   dia.textContent = `${diasAtual} Dia`;
   hora.textContent = `${horasAtual} Hora`;
   minuto.textContent = `${minutosAtual} Min`;
