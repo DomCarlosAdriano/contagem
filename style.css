@@ -32,21 +32,24 @@ body{
   color: blue;
 }
 
+.camara{
+  color: white;
+  font-weight: 800;
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(102, 255, 0);
+  margin-top: 3rem;
+}
+
 .contador{
   display: flex;
   gap: 1.5rem;
 }
 
-#dia, #hora, #minuto, #segundos{
+#dia, #hora, #minuto, #segundos, #diaB, #horaB, #minutoB, #segundosB,#diaC, #horaC, #minutoC, #segundosC{
   font-size: 2.5rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 600;
   color: white;
 }
 
-#diaB, #horaB, #minutoB, #segundosB{
-  font-size: 2.5rem;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 600;
-  color: white;
-}

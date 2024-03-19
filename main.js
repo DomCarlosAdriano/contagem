@@ -8,6 +8,13 @@ const horaB = document.getElementById("horaB");
 const minutoB = document.getElementById("minutoB");
 const segundosB = document.getElementById("segundosB");
 
+const diaC = document.getElementById("diaC");
+const horaC = document.getElementById("horaC");
+const minutoC = document.getElementById("minutoC");
+const segundosC = document.getElementById("segundosC");
+
+/////////////////////////////////////////////////////////////////
+
 function atualizandoTempo() {
   // Data final desejada
   let dataFinal = new Date("2024-05-26");
@@ -46,6 +53,8 @@ atualizandoTempo();
 
 setInterval(atualizandoTempo, 1000);
 
+//////////////////////////////////////////////////////////////////
+
 function atualizandoTempoB() {
   // Data final desejada
   let dataFinal = new Date("2024-04-28");
@@ -83,3 +92,43 @@ function atualizandoTempoB() {
 atualizandoTempoB();
 
 setInterval(atualizandoTempoB, 1000);
+
+//////////////////////////////////////////////////////////////////
+
+function atualizandoTempoC() {
+  // Data final desejada
+  let dataFinal = new Date("2024-06-02");
+
+  // Data atual
+  let dataAtual = new Date();
+
+  // Zera os milissegundos para facilitar os cálculos
+  dataAtual.setMilliseconds(0);
+
+  // Calcula a diferença entre as datas em milissegundos
+  let diferencaEmMilissegundos = dataFinal - dataAtual;
+
+  // Calcula as horas restantes até o final do dia
+  let horasRestantes = 24 - dataAtual.getHours() - 1;
+
+  // Se a hora atual for maior do que a hora final do dia, ajusta as horas restantes
+  if (horasRestantes < 0) {
+    horasRestantes += 24;
+  }
+
+  // Converte a diferença de milissegundos para dias, horas, minutos e segundos
+  let segundosAtual = Math.floor(diferencaEmMilissegundos / 1000) % 60;
+  let minutosAtual = Math.floor(diferencaEmMilissegundos / (1000 * 60)) % 60;
+  let horasAtual = horasRestantes;
+  let diasAtual = Math.floor(diferencaEmMilissegundos / (1000 * 60 * 60 * 24));
+
+  // Colocando na tela
+  diaC.textContent = `${diasAtual} Dia`;
+  horaC.textContent = `${horasAtual} Hora`;
+  minutoC.textContent = `${minutosAtual} Min`;
+  segundosC.textContent = `${segundosAtual} Seg`;
+}
+
+atualizandoTempoC();
+
+setInterval(atualizandoTempoC, 1000);
